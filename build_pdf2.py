@@ -37,23 +37,23 @@ def make_circle_photo(src, dst, size=300):
 CONTENT = {
     "pt": dict(
         title="António Pedro Costa — Curriculum Vitae",
-        role="Investigador Doutorado · Universidade de Aveiro (CIDTFF) · Colaborador LIACC – Faculdade de Engenharia da Universidade do Porto",
+        role="Investigador Doutorado · Faculdade de Psicologia e Ciências da Educação, Universidade do Porto · CIDTFF – Universidade de Aveiro · LIACC – Universidade do Porto",
         tagline="Investigação Qualitativa, Métodos Mistos e Colaboração Humano-IA aplicadas à Educação. Coautor do software webQDA e coordenador do Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e da World Conference on Qualitative Research (WCQR).",
-        contact="Oliveira de Azeméis, Portugal  ·  apcosta@ua.pt  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae  ·  Lattes",
+        contact="Oliveira de Azeméis, Portugal  ·  apcosta@fpce.up.pt  ·  apcosta@ludomedia.org  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae",
         h_sobre="SOBRE", h_percurso="PERCURSO PROFISSIONAL", h_formacao="FORMAÇÃO ACADÉMICA",
         h_investigacao="ÁREAS DE INVESTIGAÇÃO", h_publicacoes="PUBLICAÇÕES SELECIONADAS",
         h_docencia="DOCÊNCIA", h_servico="SERVIÇO CIENTÍFICO", h_premios="PRÉMIOS E DISTINÇÕES",
-        sobre_p1="Investigador doutorado da Universidade de Aveiro, integrado no Centro de Investigação em Didática e Tecnologia na Formação de Formadores (CIDTFF – DEP), e colaborador do Laboratório de Inteligência Artificial e Ciência de Computadores (LIACC) da Faculdade de Engenharia da Universidade do Porto. Desenvolve atividade científica há mais de duas décadas na intersecção entre Educação, tecnologias digitais e metodologias de investigação, com enfoque recente na utilização crítica, ética e responsável da inteligência artificial — incluindo grandes modelos de linguagem — em contextos de ensino superior e investigação científica.",
+        sobre_p1="Investigador doutorado, atualmente na Faculdade de Psicologia e Ciências da Educação da Universidade do Porto, com ligação de longa data ao Centro de Investigação em Didática e Tecnologia na Formação de Formadores (CIDTFF – Universidade de Aveiro) e ao Laboratório de Inteligência Artificial e Ciência de Computadores (LIACC – Universidade do Porto). Desenvolve atividade científica há mais de duas décadas na intersecção entre Educação, tecnologias digitais e metodologias de investigação, com enfoque recente na utilização crítica, ética e responsável da inteligência artificial — incluindo grandes modelos de linguagem — em contextos de ensino superior e investigação científica.",
         sobre_p2="Doutorado em Multimédia em Educação pela Universidade de Aveiro, com pós-doutoramento em investigação qualitativa aplicada à Educação e formação de base em Engenharia da Comunicação. É autor e editor de mais de 300 publicações científicas. Coordena, desde a sua criação, dois dos principais eventos internacionais na área da investigação qualitativa: o CIAIQ e a WCQR.",
         stats=[("300+", "Publicações"), ("76", "Artigos em revistas"), ("50", "Artigos em conferências"),
                ("44", "Eventos organizados"), ("20+", "Anos de atividade")],
         percurso=[
-            ("2023 – presente", "Investigador Doutorado, Universidade de Aveiro",
+            ("2026 – presente", "Investigador Doutorado (nível 2), Faculdade de Psicologia e Ciências da Educação, Universidade do Porto", None),
+            ("2023 – 2026", "Investigador Doutorado (nível 3), Universidade de Aveiro",
              "Projeto “Collaborative and automated processes for qualitative research in Education” · DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011"),
-            ("2023 – presente", "Investigador Doutorado, Faculdade de Psicologia e Ciências da Educação da Universidade do Porto", None),
-            ("2013 – presente", "Membro integrado e do Conselho Científico, CIDTFF – Universidade de Aveiro",
+            ("2013 – 2026", "Membro integrado e do Conselho Científico, CIDTFF – Universidade de Aveiro",
              "Laboratório de Conteúdos Digitais (LCD), Departamento de Educação e Psicologia"),
-            ("2008 – presente", "Colaborador, LIACC – Faculdade de Engenharia da Universidade do Porto", None),
+            ("2008 – 2026", "Colaborador, LIACC – Faculdade de Engenharia da Universidade do Porto", None),
             ("2004 – presente", "Cofundador, Ludomedia Unipessoal Lda.",
              "Responsável intelectual e pedagógico · Oliveira de Azeméis · www.ludomedia.org"),
             ("2000 – 2006", "Cofundador e Diretor Geral, ArteVirtual",
@@ -90,34 +90,34 @@ CONTENT = {
         serv_right=[
             "Membro do Conselho Científico, CIIE – Universidade do Porto (2026–)",
             "Membro da Comissão Científica, Doutoramento em Educação, ISCED-Huíla, Angola (2025–)",
-            "Membro do Conselho Científico, CIDTFF – Universidade de Aveiro (2013–)",
+            "Membro do Conselho Científico, CIDTFF – Universidade de Aveiro (2013–2026)",
             "Membro do Editorial Board, The Qualitative Report (2025–)",
         ],
         premios=[
             "Menção Honrosa, Área de Artes e Humanidades, “Prémio Investigador UA” (2022)",
             "Biannual Book in Spanish or Portuguese, ICQI Award (2016)",
         ],
-        footer2="Currículo completo disponível mediante pedido.",
+        footer2="Currículo completo disponível mediante pedido. · Atualizado em 13 de julho de 2026.",
     ),
     "en": dict(
         title="António Pedro Costa — Curriculum Vitae",
-        role="Doctoral Researcher · University of Aveiro (CIDTFF) · Collaborator, LIACC – Faculty of Engineering, University of Porto",
+        role="Doctoral Researcher · Faculty of Psychology and Educational Sciences, University of Porto · CIDTFF – University of Aveiro · LIACC – University of Porto",
         tagline="Qualitative Research, Mixed Methods and Human-AI Collaboration applied to Education. Co-author of the webQDA software and coordinator of the Ibero-American Congress on Qualitative Research (CIAIQ) and the World Conference on Qualitative Research (WCQR).",
-        contact="Oliveira de Azeméis, Portugal  ·  apcosta@ua.pt  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae  ·  Lattes",
+        contact="Oliveira de Azeméis, Portugal  ·  apcosta@fpce.up.pt  ·  apcosta@ludomedia.org  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae",
         h_sobre="ABOUT", h_percurso="PROFESSIONAL CAREER", h_formacao="ACADEMIC EDUCATION",
         h_investigacao="RESEARCH AREAS", h_publicacoes="SELECTED PUBLICATIONS",
         h_docencia="TEACHING", h_servico="SCIENTIFIC SERVICE", h_premios="AWARDS AND DISTINCTIONS",
-        sobre_p1="Doctoral researcher at the University of Aveiro, integrated member of the Research Centre on Didactics and Technology in the Education of Trainers (CIDTFF – DEP), and collaborator of the Artificial Intelligence and Computer Science Laboratory (LIACC) at the Faculty of Engineering, University of Porto. He has been active in scientific research for over two decades at the intersection of Education, digital technologies and research methodologies, with a recent focus on the critical, ethical and responsible use of artificial intelligence — including large language models — in higher education and scientific research contexts.",
+        sobre_p1="Doctoral researcher, currently at the Faculty of Psychology and Educational Sciences, University of Porto, with a long-standing link to the Research Centre on Didactics and Technology in the Education of Trainers (CIDTFF – University of Aveiro) and to the Artificial Intelligence and Computer Science Laboratory (LIACC – University of Porto). He has been active in scientific research for over two decades at the intersection of Education, digital technologies and research methodologies, with a recent focus on the critical, ethical and responsible use of artificial intelligence — including large language models — in higher education and scientific research contexts.",
         sobre_p2="PhD in Multimedia in Education from the University of Aveiro, with a postdoctoral fellowship in qualitative research applied to Education and a background in Communication Engineering. He is author and editor of more than 300 scientific publications. He has coordinated, since their creation, two of the leading international events in qualitative research: CIAIQ and WCQR.",
         stats=[("300+", "Publications"), ("76", "Journal articles"), ("50", "Conference papers"),
                ("44", "Events organised"), ("20+", "Years of activity")],
         percurso=[
-            ("2023 – present", "Doctoral Researcher, University of Aveiro",
+            ("2026 – present", "Doctoral Researcher (level 2), Faculty of Psychology and Educational Sciences, University of Porto", None),
+            ("2023 – 2026", "Doctoral Researcher (level 3), University of Aveiro",
              "Project “Collaborative and automated processes for qualitative research in Education” · DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011"),
-            ("2023 – present", "Doctoral Researcher, Faculty of Psychology and Education Sciences, University of Porto", None),
-            ("2013 – present", "Integrated Member and Scientific Council Member, CIDTFF – University of Aveiro",
+            ("2013 – 2026", "Integrated Member and Scientific Council Member, CIDTFF – University of Aveiro",
              "Digital Content Laboratory (LCD), Department of Education and Psychology"),
-            ("2008 – present", "Collaborator, LIACC – Faculty of Engineering, University of Porto", None),
+            ("2008 – 2026", "Collaborator, LIACC – Faculty of Engineering, University of Porto", None),
             ("2004 – present", "Co-founder, Ludomedia Unipessoal Lda.",
              "Intellectual and pedagogical lead · Oliveira de Azeméis · www.ludomedia.org"),
             ("2000 – 2006", "Co-founder and General Director, ArteVirtual",
@@ -154,14 +154,14 @@ CONTENT = {
         serv_right=[
             "Member of the Scientific Council, CIIE – University of Porto (2026–)",
             "Member of the Scientific Committee, PhD in Education, ISCED-Huíla, Angola (2025–)",
-            "Member of the Scientific Council, CIDTFF – University of Aveiro (2013–)",
+            "Member of the Scientific Council, CIDTFF – University of Aveiro (2013–2026)",
             "Member of the Editorial Board, The Qualitative Report (2025–)",
         ],
         premios=[
             "Honourable Mention, Arts and Humanities, “UA Researcher Award” (2022)",
             "Biannual Book in Spanish or Portuguese, ICQI Award (2016)",
         ],
-        footer2="Full curriculum vitae available upon request.",
+        footer2="Full curriculum vitae available upon request. · Updated July 13, 2026.",
     ),
 }
 
@@ -209,7 +209,6 @@ def build_pdf(lang, out_path, photo_path=None):
 
     story = []
 
-    # Header block: photo + name/role side by side using a table
     header_text = []
     header_text.append(Paragraph("António Pedro Dias da Costa", name_style))
     header_text.append(Paragraph(c["role"], role_style))
@@ -231,7 +230,6 @@ def build_pdf(lang, out_path, photo_path=None):
     story.append(Spacer(1, 4))
     story.append(hr())
 
-    # SOBRE / ABOUT
     story.append(Paragraph(c["h_sobre"], h2_style))
     story.append(Paragraph(c["sobre_p1"], body_style))
     story.append(Paragraph(c["sobre_p2"], body_style))
@@ -248,44 +246,35 @@ def build_pdf(lang, out_path, photo_path=None):
     story.append(stat_table)
     story.append(hr())
 
-    # PERCURSO
     story.append(Paragraph(c["h_percurso"], h2_style))
     for period, title, meta in c["percurso"]:
         entry(story, period, title, meta)
     story.append(hr())
 
-    # FORMACAO
     story.append(Paragraph(c["h_formacao"], h2_style))
     for period, title, meta in c["formacao"]:
         entry(story, period, title, meta)
     story.append(Paragraph(c["formacao_extra"], meta_style))
     story.append(hr())
 
-    # INVESTIGACAO
     story.append(Paragraph(c["h_investigacao"], h2_style))
     story.append(Paragraph(c["areas"], body_style))
     story.append(Paragraph(c["areas_p"], body_style))
     story.append(hr())
 
-    # PUBLICACOES
     story.append(Paragraph(c["h_publicacoes"], h2_style))
     story.append(Paragraph(c["pubs_intro"], meta_style))
     for p in PUBS:
         story.append(Paragraph(p, pub_style))
     story.append(hr())
 
-    # DOCENCIA
     story.append(Paragraph(c["h_docencia"], h2_style))
     for period, title, meta in c["docencia"]:
         entry(story, period, title, meta)
     story.append(Paragraph(c["docencia_extra"], body_style))
     story.append(hr())
 
-    # SERVICO
     story.append(Paragraph(c["h_servico"], h2_style))
-    serv_table_data = [[
-        Table([[Paragraph(c["serv_left_title"], h3_style)]])
-    ]]
     left_flow = [Paragraph(c["serv_left_title"], h3_style), Spacer(1, 4)]
     left_flow.append(ListFlowable([ListItem(Paragraph(t, li_style)) for t in c["serv_left"]],
                                    bulletType='bullet', start='-', leftIndent=10))
@@ -297,7 +286,6 @@ def build_pdf(lang, out_path, photo_path=None):
     story.append(serv_table)
     story.append(hr())
 
-    # PREMIOS
     story.append(Paragraph(c["h_premios"], h2_style))
     for p in c["premios"]:
         story.append(Paragraph("· " + p, li_style))
@@ -313,7 +301,7 @@ def build_pdf(lang, out_path, photo_path=None):
 
 
 if __name__ == "__main__":
-    photo = PHOTO_CIRCLE if os.path.exists(PHOTO_SRC) else None
+    photo = None
     if os.path.exists(PHOTO_SRC):
         make_circle_photo(PHOTO_SRC, PHOTO_CIRCLE)
         photo = PHOTO_CIRCLE
