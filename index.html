@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>António Pedro Costa — Curriculum Vitae</title>
+<style>
+  :root{
+    --ink:#1c2530;
+    --ink-soft:#4b5563;
+    --accent:#1f6f78;
+    --accent-soft:#e4f1f2;
+    --line:#e2e5e9;
+    --bg:#ffffff;
+    --bg-alt:#f7f8fa;
+    --max:880px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Georgia","Iowan Old Style", serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,.nav a,.tag{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  header.hero{
+    background:linear-gradient(180deg,var(--bg-alt) 0%, var(--bg) 100%);
+    border-bottom:1px solid var(--line);
+    padding:56px 0 32px;
+  }
+  header.hero .wrap{display:flex;flex-direction:column;gap:14px;}
+  h1{font-size:2.1rem;margin:0;letter-spacing:-0.01em;color:var(--ink);}
+  .role{font-size:1.05rem;color:var(--ink-soft);margin:0;}
+  .tagline{font-size:0.95rem;color:var(--ink-soft);max-width:640px;}
+  .contact-row{
+    display:flex;flex-wrap:wrap;gap:10px 18px;font-size:0.88rem;color:var(--ink-soft);
+    margin-top:6px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  .contact-row span{white-space:nowrap;}
+  .links-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .pill{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:0.8rem;
+    border:1px solid var(--line);
+    background:var(--bg);
+    padding:5px 12px;
+    border-radius:999px;
+    color:var(--accent);
+  }
+  .pill:hover{background:var(--accent-soft);text-decoration:none;}
+
+  nav.toc{
+    position:sticky;top:0;background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+  }
+  nav.toc .wrap{display:flex;gap:20px;padding:12px 28px;overflow-x:auto;}
+  nav.toc a{
+    font-size:0.82rem;font-weight:600;color:var(--ink-soft);
+    white-space:nowrap;text-decoration:none;letter-spacing:0.02em;text-transform:uppercase;
+  }
+  nav.toc a:hover{color:var(--accent);}
+
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--accent);margin:0 0 22px;font-weight:700;
+  }
+  h3{font-size:1.02rem;margin:0 0 2px;color:var(--ink);font-weight:600;}
+  .meta{font-size:0.85rem;color:var(--ink-soft);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+  p{margin:0 0 14px;color:var(--ink);}
+  .lede{font-size:1.02rem;color:var(--ink-soft);}
+
+  .entry{margin-bottom:22px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry .period{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:0.78rem;color:var(--accent);font-weight:700;letter-spacing:0.02em;
+    display:block;margin-bottom:3px;
+  }
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:28px;margin:18px 0 6px;}
+  .stat{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+  .stat .num{font-size:1.7rem;font-weight:700;color:var(--accent);display:block;line-height:1.1;}
+  .stat .lbl{font-size:0.78rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.03em;}
+
+  ul.pub-list{list-style:none;margin:0;padding:0;}
+  ul.pub-list li{
+    padding:10px 0;border-bottom:1px dashed var(--line);font-size:0.93rem;color:var(--ink-soft);
+  }
+  ul.pub-list li:last-child{border-bottom:none;}
+  ul.pub-list .yr{color:var(--accent);font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:0.8rem;}
+  ul.pub-list a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--line);}
+
+  ul.plain{margin:0;padding-left:18px;}
+  ul.plain li{margin-bottom:8px;color:var(--ink-soft);font-size:0.93rem;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .tag{
+    font-size:0.76rem;background:var(--accent-soft);color:var(--accent);
+    padding:4px 10px;border-radius:5px;font-weight:600;
+  }
+
+  footer{padding:32px 0 60px;text-align:center;}
+  footer p{color:var(--ink-soft);font-size:0.85rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+
+  .print-btn{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:0.8rem;border:1px solid var(--accent);color:var(--accent);
+    background:var(--bg);padding:6px 14px;border-radius:6px;cursor:pointer;
+  }
+  .print-btn:hover{background:var(--accent-soft);}
+  @media print{
+    nav.toc,.print-btn{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>António Pedro Dias da Costa</h1>
+    <p class="role">Investigador Doutorado · Universidade de Aveiro (CIDTFF) · Colaborador LIACC — Faculdade de Engenharia da Universidade do Porto</p>
+    <p class="tagline">Investigação Qualitativa, Métodos Mistos e Colaboração Humano-IA aplicadas à Educação. Coautor do software webQDA e coordenador do Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e da World Conference on Qualitative Research (WCQR).</p>
+    <div class="contact-row">
+      <span>Oliveira de Azeméis, Portugal</span>
+      <span>apcosta@ua.pt</span>
+    </div>
+    <div class="links-row">
+      <a class="pill" href="http://orcid.org/0000-0002-4644-5879" target="_blank">ORCID</a>
+      <a class="pill" href="https://scholar.google.pt/citations?hl=en&user=IBkRQJsAAAAJ" target="_blank">Google Scholar</a>
+      <a class="pill" href="https://www.cienciavitae.pt/pt/7919-E3E4-7FC8" target="_blank">CiênciaVitae</a>
+      <a class="pill" href="http://lattes.cnpq.br/5849812624696981" target="_blank">Lattes</a>
+      <a class="pill" href="http://cidtffcv.web.ua.pt/" target="_blank">CIDTFF</a>
+      <button class="print-btn" onclick="window.print()">Guardar como PDF</button>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#sobre">Sobre</a>
+    <a href="#percurso">Percurso Profissional</a>
+    <a href="#formacao">Formação</a>
+    <a href="#investigacao">Investigação</a>
+    <a href="#publicacoes">Publicações</a>
+    <a href="#docencia">Docência</a>
+    <a href="#servico">Serviço Científico</a>
+    <a href="#premios">Prémios</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="sobre">
+    <h2>Sobre</h2>
+    <p class="lede">Investigador doutorado da Universidade de Aveiro, integrado no Centro de Investigação em Didática e Tecnologia na Formação de Formadores (CIDTFF – DEP), e colaborador do Laboratório de Inteligência Artificial e Ciência de Computadores (LIACC) da Faculdade de Engenharia da Universidade do Porto. Desenvolve atividade científica há mais de duas décadas na intersecção entre Educação, tecnologias digitais e metodologias de investigação, com enfoque recente na utilização crítica, ética e responsável da inteligência artificial — incluindo grandes modelos de linguagem — em contextos de ensino superior e investigação científica.</p>
+    <p>Doutorado em Multimédia em Educação pela Universidade de Aveiro, com pós-doutoramento em investigação qualitativa aplicada à Educação e formação de base em Engenharia da Comunicação. É autor e editor de mais de 300 publicações científicas, incluindo artigos em revistas internacionais indexadas (SCOPUS e Web of Science), livros e capítulos de livros. Coordena, desde a sua criação, dois dos principais eventos internacionais na área da investigação qualitativa: o Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e a World Conference on Qualitative Research (WCQR).</p>
+    <div class="stat-row">
+      <div class="stat"><span class="num">300+</span><span class="lbl">Publicações científicas</span></div>
+      <div class="stat"><span class="num">76</span><span class="lbl">Artigos em revistas</span></div>
+      <div class="stat"><span class="num">50</span><span class="lbl">Artigos em conferências</span></div>
+      <div class="stat"><span class="num">44</span><span class="lbl">Eventos científicos organizados</span></div>
+      <div class="stat"><span class="num">20+</span><span class="lbl">Anos de atividade científica</span></div>
+    </div>
+  </section>
+
+  <section id="percurso">
+    <h2>Percurso Profissional</h2>
+    <div class="entry">
+      <span class="period">2023 — presente</span>
+      <h3>Investigador Doutorado, Universidade de Aveiro</h3>
+      <p class="meta">Projeto "Collaborative and automated processes for qualitative research in Education" · DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011</p>
+    </div>
+    <div class="entry">
+      <span class="period">2023 — presente</span>
+      <h3>Investigador Doutorado, Faculdade de Psicologia e Ciências da Educação da Universidade do Porto</h3>
+    </div>
+    <div class="entry">
+      <span class="period">2013 — presente</span>
+      <h3>Membro integrado e do Conselho Científico, CIDTFF — Universidade de Aveiro</h3>
+      <p class="meta">Laboratório de Conteúdos Digitais (LCD), Departamento de Educação e Psicologia</p>
+    </div>
+    <div class="entry">
+      <span class="period">2008 — presente</span>
+      <h3>Colaborador, LIACC — Faculdade de Engenharia da Universidade do Porto</h3>
+    </div>
+    <div class="entry">
+      <span class="period">2004 — presente</span>
+      <h3>Cofundador, Ludomedia Unipessoal Lda.</h3>
+      <p class="meta">Responsável intelectual e pedagógico · Oliveira de Azeméis · www.ludomedia.org</p>
+    </div>
+    <div class="entry">
+      <span class="period">2000 — 2006</span>
+      <h3>Cofundador e Diretor Geral, ArteVirtual</h3>
+      <p class="meta">Exploração de Tecnologias de Informação e Comunicação, Oliveira de Azeméis</p>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação Académica</h2>
+    <div class="entry">
+      <span class="period">2018</span>
+      <h3>Pós-Doutoramento — Universidade de Aveiro</h3>
+      <p class="meta">"Implementação e Avaliação de Instrumentos para Análise Qualitativa na Investigação em Educação" · bolsa SFRH/BPD/104288/2014</p>
+    </div>
+    <div class="entry">
+      <span class="period">2012</span>
+      <h3>Doutoramento em Multimédia em Educação — Universidade de Aveiro</h3>
+      <p class="meta">Departamento de Educação e Departamento de Comunicação e Arte · Tese: "Metodologia Híbrida de Desenvolvimento Centrado no Utilizador: aplicada ao Software Educativo"</p>
+    </div>
+    <div class="entry">
+      <span class="period">2003</span>
+      <h3>Curso de Especialização em Multimédia em Educação — Universidade de Aveiro</h3>
+    </div>
+    <div class="entry">
+      <span class="period">2002</span>
+      <h3>Licenciatura em Engenharia da Comunicação (vertente Comunicação e Design) — Universidade Fernando Pessoa</h3>
+    </div>
+    <p class="meta" style="margin-top:8px;">Detém ainda certificação como Formador pelo Conselho Científico-Pedagógico da Formação Contínua (CCPFC/RFO – 17976/04, desde 2004) e diversa formação complementar em investigação, análise bibliométrica e metodologias mistas.</p>
+  </section>
+
+  <section id="investigacao">
+    <h2>Áreas de Investigação</h2>
+    <div class="tags">
+      <span class="tag">Colaboração Humano-IA</span>
+      <span class="tag">Investigação Qualitativa</span>
+      <span class="tag">Métodos Mistos</span>
+      <span class="tag">Análise de Dados Qualitativos</span>
+      <span class="tag">Software webQDA</span>
+      <span class="tag">Métodos Visuais</span>
+      <span class="tag">Design Centrado no Utilizador</span>
+      <span class="tag">Ética e Integridade na Investigação</span>
+      <span class="tag">Tecnologias Educativas</span>
+    </div>
+    <p style="margin-top:20px;">Participa atualmente em projetos e redes científicas internacionais, entre os quais o Erasmus+ EDUAI (Empowering Educators for AI-Integrated Learning), a COST Action CA24121 (Knowledge Graphs in the Era of Large Language Models) e colaborações com a National Academy of Sciences of Ukraine / UNESCO Chair on AI in Education. Organiza regularmente iniciativas dedicadas à IA no ensino e na investigação, como o Fórum de Inteligência Artificial no Espaço Educacional e a iniciativa "Saber Lidar com a IA".</p>
+  </section>
+
+  <section id="publicacoes">
+    <h2>Publicações Selecionadas</h2>
+    <p class="meta" style="margin-bottom:16px;">Seleção de publicações recentes. Lista completa (300+ trabalhos) disponível no <a href="https://scholar.google.pt/citations?hl=en&user=IBkRQJsAAAAJ" target="_blank">Google Scholar</a> e <a href="http://orcid.org/0000-0002-4644-5879" target="_blank">ORCID</a>.</p>
+    <ul class="pub-list">
+      <li><span class="yr">2025</span> — Costa, A. P., Bryda, G., Christou, P. A., & Kasperiuniene, J. AI as a Co-researcher in the Qualitative Research Workflow: Transforming Human-AI Collaboration. <em>International Journal of Qualitative Methods</em>, 24.</li>
+      <li><span class="yr">2025</span> — Costa, A. P., Burneo, P., & Kasperiuniene, J. Mixed-methods & AI for Methodological Literature Reviews. <em>The Qualitative Report</em>, 30(10), 4515–4540.</li>
+      <li><span class="yr">2025</span> — Pinho, I., Costa, A. P., & Pinho, C. Generative AI Governance Model in Educational Research. <em>Frontiers in Education</em>, 10.</li>
+      <li><span class="yr">2025</span> — Burneo-Arteaga, P., Lira, Y., Murzi, H., Balula, A., & Costa, A. P. Capability-based training framework for generative AI in higher education. <em>Frontiers in Education</em>, 10.</li>
+      <li><span class="yr">2024</span> — Petre, G.-E., & Costa, A. P. Advancing Qualitative Research: Insights from the 7th World Conference on Qualitative Research. <em>Social Sciences</em>, 13(1).</li>
+      <li><span class="yr">2023</span> — Bryda, G., & Costa, A. P. Qualitative Research in Digital Era: Innovations, Methodologies and Collaborations. <em>Social Sciences</em>, 12(10), 570.</li>
+      <li><span class="yr">2023</span> — Costa, A. P. Qualitative Research Methods: do digital tools open promising trends? <em>Revista Lusófona de Educação</em>, 59(59), 67–76.</li>
+      <li><span class="yr">2020</span> — Brandão, C., & Costa, A. P. Reflecting on CAQDAS and Ethics. <em>The Qualitative Report</em>, 25(13), 1–5.</li>
+      <li><span class="yr">2019</span> — Costa, A. P., & Moreira, A. Technology ethics in qualitative research: How to be. <em>The Qualitative Report</em>, 24(13).</li>
+      <li><span class="yr">2019</span> — Costa, A. P., & Minayo, M. C. de S. Building criteria to evaluate qualitative research papers: a tool for peer reviewers. <em>Revista da Escola de Enfermagem da USP</em>, 53, 1–7.</li>
+    </ul>
+  </section>
+
+  <section id="docencia">
+    <h2>Docência</h2>
+    <div class="entry">
+      <span class="period">2025/2026</span>
+      <h3>Universidade de Aveiro</h3>
+      <p class="meta">Metodologias de Investigação em Multimédia em Educação (Programas Doutorais) · Metodologias de Investigação em Educação (Programa Doutoral em Educação)</p>
+    </div>
+    <div class="entry">
+      <span class="period">2014 — 2024</span>
+      <h3>Universidade de Aveiro, Universidade Lusófona do Porto, ISLA, ISVOUGA</h3>
+      <p class="meta">Metodologias de Investigação em cursos de mestrado, doutoramento e pós-graduação; Competências Transversais e Transferíveis (Escola Doutoral, UA, desde 2024/2025)</p>
+    </div>
+    <div class="entry">
+      <span class="period">2001 — 2003</span>
+      <h3>Instituto Piaget</h3>
+      <p class="meta">Comunicação Educacional Multimédia e Novas Técnicas de Comunicação</p>
+    </div>
+    <p style="margin-top:10px;">Desde 2010, coordena a formação em torno do software de análise qualitativa <strong>webQDA</strong>, tendo dinamizado dezenas de cursos e workshops em Portugal, Espanha, Brasil, Croácia e Jordânia, entre outros países.</p>
+  </section>
+
+  <section id="servico">
+    <h2>Serviço Científico</h2>
+    <div class="grid2">
+      <div>
+        <h3 style="margin-bottom:10px;">Organização de Eventos (seleção)</h3>
+        <ul class="plain">
+          <li>Coorganizador, 9th World Conference on Qualitative Research (WCQR2026), Madrid</li>
+          <li>Coorganizador, 14º Congresso Ibero-Americano em Investigação Qualitativa, Porto (2025)</li>
+          <li>Coorganizador, 2º Fórum IA no Espaço Educacional, Universidade de Aveiro (2025)</li>
+          <li>Coorganizador, 8th World Conference on Qualitative Research (WCQR2025), Cracóvia</li>
+          <li>Coordenador fundador do CIAIQ e da WCQR — 14 e 9 edições realizadas, respetivamente</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px;">Órgãos e Comissões Científicas</h3>
+        <ul class="plain">
+          <li>Membro do Conselho Científico, CIIE — Universidade do Porto (2026–)</li>
+          <li>Membro da Comissão Científica, Doutoramento em Educação, ISCED-Huíla, Angola (2025–)</li>
+          <li>Membro do Conselho Científico, CIDTFF — Universidade de Aveiro (2013–)</li>
+          <li>Membro do Editorial Board, <em>The Qualitative Report</em> (2025–)</li>
+          <li>Track Chair em conferências internacionais (TEEM 2020–2022, ISCAIE/IEEE, TASK)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="premios">
+    <h2>Prémios e Distinções</h2>
+    <ul class="plain">
+      <li>Menção Honrosa na área das Artes e Humanidades, categoria "Prémio Investigador UA" (2022)</li>
+      <li>Biannual Book in Spanish or Portuguese, ICQI Award (2016)</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>António Pedro Dias da Costa · apcosta@ua.pt · Oliveira de Azeméis, Portugal</p>
+  <p>Currículo completo disponível mediante pedido.</p>
+</footer>
+
+</body>
+</html>
