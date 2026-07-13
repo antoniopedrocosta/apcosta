@@ -24,7 +24,7 @@
     line-height:1.6;
     font-size:16px;
   }
-  h1,h2,h3,.nav a,.tag{
+  h1,h2,h3,.nav a,.tag,button{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   }
   a{color:var(--accent);text-decoration:none;}
@@ -36,7 +36,21 @@
     border-bottom:1px solid var(--line);
     padding:56px 0 32px;
   }
-  header.hero .wrap{display:flex;flex-direction:column;gap:14px;}
+  header.hero .wrap{display:flex;gap:28px;align-items:flex-start;}
+  .hero-photo{
+    flex:0 0 auto;
+    width:120px;height:120px;border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--bg);
+    box-shadow:0 0 0 1px var(--line), 0 8px 20px rgba(28,37,48,0.12);
+    background:var(--accent-soft);
+  }
+  .hero-photo.placeholder{
+    display:flex;align-items:center;justify-content:center;
+    font-size:2rem;font-weight:700;color:var(--accent);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  .hero-text{display:flex;flex-direction:column;gap:14px;min-width:0;}
   h1{font-size:2.1rem;margin:0;letter-spacing:-0.01em;color:var(--ink);}
   .role{font-size:1.05rem;color:var(--ink-soft);margin:0;}
   .tagline{font-size:0.95rem;color:var(--ink-soft);max-width:640px;}
@@ -45,7 +59,7 @@
     margin-top:6px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   }
   .contact-row span{white-space:nowrap;}
-  .links-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .links-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;align-items:center;}
   .pill{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     font-size:0.8rem;
@@ -56,6 +70,20 @@
     color:var(--accent);
   }
   .pill:hover{background:var(--accent-soft);text-decoration:none;}
+  .lang-btn{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:0.8rem;font-weight:700;
+    border:1px solid var(--accent);color:var(--accent);
+    background:var(--bg);padding:5px 14px;border-radius:999px;cursor:pointer;
+    letter-spacing:0.03em;
+  }
+  .lang-btn:hover{background:var(--accent-soft);}
+  .print-btn{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:0.8rem;border:1px solid var(--accent);color:var(--accent);
+    background:var(--bg);padding:6px 14px;border-radius:6px;cursor:pointer;
+  }
+  .print-btn:hover{background:var(--accent-soft);}
 
   nav.toc{
     position:sticky;top:0;background:rgba(255,255,255,0.94);
@@ -63,12 +91,13 @@
     border-bottom:1px solid var(--line);
     z-index:10;
   }
-  nav.toc .wrap{display:flex;gap:20px;padding:12px 28px;overflow-x:auto;}
+  nav.toc .wrap{display:flex;gap:20px;padding:12px 28px;overflow-x:auto;align-items:center;}
   nav.toc a{
     font-size:0.82rem;font-weight:600;color:var(--ink-soft);
     white-space:nowrap;text-decoration:none;letter-spacing:0.02em;text-transform:uppercase;
   }
   nav.toc a:hover{color:var(--accent);}
+  nav.toc .spacer{flex:1;}
 
   section{padding:40px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
@@ -90,7 +119,10 @@
   }
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
+  @media (max-width:640px){
+    .grid2{grid-template-columns:1fr;}
+    header.hero .wrap{flex-direction:column;align-items:flex-start;}
+  }
 
   .stat-row{display:flex;flex-wrap:wrap;gap:28px;margin:18px 0 6px;}
   .stat{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
@@ -103,7 +135,6 @@
   }
   ul.pub-list li:last-child{border-bottom:none;}
   ul.pub-list .yr{color:var(--accent);font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:0.8rem;}
-  ul.pub-list a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--line);}
 
   ul.plain{margin:0;padding-left:18px;}
   ul.plain li{margin-bottom:8px;color:var(--ink-soft);font-size:0.93rem;}
@@ -117,14 +148,8 @@
   footer{padding:32px 0 60px;text-align:center;}
   footer p{color:var(--ink-soft);font-size:0.85rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
 
-  .print-btn{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:0.8rem;border:1px solid var(--accent);color:var(--accent);
-    background:var(--bg);padding:6px 14px;border-radius:6px;cursor:pointer;
-  }
-  .print-btn:hover{background:var(--accent-soft);}
   @media print{
-    nav.toc,.print-btn{display:none;}
+    nav.toc,.print-btn,.lang-btn{display:none;}
   }
 </style>
 </head>
@@ -132,126 +157,141 @@
 
 <header class="hero">
   <div class="wrap">
-    <h1>António Pedro Dias da Costa</h1>
-    <p class="role">Investigador Doutorado · Universidade de Aveiro (CIDTFF) · Colaborador LIACC — Faculdade de Engenharia da Universidade do Porto</p>
-    <p class="tagline">Investigação Qualitativa, Métodos Mistos e Colaboração Humano-IA aplicadas à Educação. Coautor do software webQDA e coordenador do Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e da World Conference on Qualitative Research (WCQR).</p>
-    <div class="contact-row">
-      <span>Oliveira de Azeméis, Portugal</span>
-      <span>apcosta@ua.pt</span>
-    </div>
-    <div class="links-row">
-      <a class="pill" href="http://orcid.org/0000-0002-4644-5879" target="_blank">ORCID</a>
-      <a class="pill" href="https://scholar.google.pt/citations?hl=en&user=IBkRQJsAAAAJ" target="_blank">Google Scholar</a>
-      <a class="pill" href="https://www.cienciavitae.pt/pt/7919-E3E4-7FC8" target="_blank">CiênciaVitae</a>
-      <a class="pill" href="http://lattes.cnpq.br/5849812624696981" target="_blank">Lattes</a>
-      <a class="pill" href="http://cidtffcv.web.ua.pt/" target="_blank">CIDTFF</a>
-      <button class="print-btn" onclick="window.print()">Guardar como PDF</button>
+    <!-- PHOTO: replace the div below with <img class="hero-photo" src="foto.jpg" alt="António Pedro Costa"> once the photo file is added -->
+    <div class="hero-photo placeholder">APC</div>
+    <div class="hero-text">
+      <h1>António Pedro Dias da Costa</h1>
+      <p class="role i18n" data-pt="Investigador Doutorado &middot; Universidade de Aveiro (CIDTFF) &middot; Colaborador LIACC &ndash; Faculdade de Engenharia da Universidade do Porto" data-en="Doctoral Researcher &middot; University of Aveiro (CIDTFF) &middot; Collaborator, LIACC &ndash; Faculty of Engineering, University of Porto"></p>
+      <p class="tagline i18n" data-pt="Investiga&ccedil;&atilde;o Qualitativa, M&eacute;todos Mistos e Colabora&ccedil;&atilde;o Humano-IA aplicadas &agrave; Educa&ccedil;&atilde;o. Coautor do software webQDA e coordenador do Congresso Ibero-Americano em Investiga&ccedil;&atilde;o Qualitativa (CIAIQ) e da World Conference on Qualitative Research (WCQR)." data-en="Qualitative Research, Mixed Methods and Human-AI Collaboration applied to Education. Co-author of the webQDA software and coordinator of the Ibero-American Congress on Qualitative Research (CIAIQ) and the World Conference on Qualitative Research (WCQR)."></p>
+      <div class="contact-row">
+        <span class="i18n" data-pt="Oliveira de Azem&eacute;is, Portugal" data-en="Oliveira de Azem&eacute;is, Portugal"></span>
+        <span>apcosta@ua.pt</span>
+      </div>
+      <div class="links-row">
+        <a class="pill" href="http://orcid.org/0000-0002-4644-5879" target="_blank">ORCID</a>
+        <a class="pill" href="https://scholar.google.pt/citations?hl=en&user=IBkRQJsAAAAJ" target="_blank">Google Scholar</a>
+        <a class="pill" href="https://www.cienciavitae.pt/pt/7919-E3E4-7FC8" target="_blank">CiênciaVitae</a>
+        <a class="pill" href="http://lattes.cnpq.br/5849812624696981" target="_blank">Lattes</a>
+        <a class="pill" href="http://cidtffcv.web.ua.pt/" target="_blank">CIDTFF</a>
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+        <button class="print-btn i18n" data-pt="Guardar como PDF" data-en="Save as PDF" onclick="window.print()"></button>
+      </div>
     </div>
   </div>
 </header>
 
 <nav class="toc">
   <div class="wrap">
-    <a href="#sobre">Sobre</a>
-    <a href="#percurso">Percurso Profissional</a>
-    <a href="#formacao">Formação</a>
-    <a href="#investigacao">Investigação</a>
-    <a href="#publicacoes">Publicações</a>
-    <a href="#docencia">Docência</a>
-    <a href="#servico">Serviço Científico</a>
-    <a href="#premios">Prémios</a>
+    <a href="#sobre" class="i18n" data-pt="Sobre" data-en="About"></a>
+    <a href="#percurso" class="i18n" data-pt="Percurso Profissional" data-en="Professional Career"></a>
+    <a href="#formacao" class="i18n" data-pt="Forma&ccedil;&atilde;o" data-en="Education"></a>
+    <a href="#investigacao" class="i18n" data-pt="Investiga&ccedil;&atilde;o" data-en="Research"></a>
+    <a href="#publicacoes" class="i18n" data-pt="Publica&ccedil;&otilde;es" data-en="Publications"></a>
+    <a href="#docencia" class="i18n" data-pt="Doc&ecirc;ncia" data-en="Teaching"></a>
+    <a href="#servico" class="i18n" data-pt="Servi&ccedil;o Cient&iacute;fico" data-en="Scientific Service"></a>
+    <a href="#premios" class="i18n" data-pt="Pr&eacute;mios" data-en="Awards"></a>
   </div>
 </nav>
 
 <main class="wrap">
 
   <section id="sobre">
-    <h2>Sobre</h2>
-    <p class="lede">Investigador doutorado da Universidade de Aveiro, integrado no Centro de Investigação em Didática e Tecnologia na Formação de Formadores (CIDTFF – DEP), e colaborador do Laboratório de Inteligência Artificial e Ciência de Computadores (LIACC) da Faculdade de Engenharia da Universidade do Porto. Desenvolve atividade científica há mais de duas décadas na intersecção entre Educação, tecnologias digitais e metodologias de investigação, com enfoque recente na utilização crítica, ética e responsável da inteligência artificial — incluindo grandes modelos de linguagem — em contextos de ensino superior e investigação científica.</p>
-    <p>Doutorado em Multimédia em Educação pela Universidade de Aveiro, com pós-doutoramento em investigação qualitativa aplicada à Educação e formação de base em Engenharia da Comunicação. É autor e editor de mais de 300 publicações científicas, incluindo artigos em revistas internacionais indexadas (SCOPUS e Web of Science), livros e capítulos de livros. Coordena, desde a sua criação, dois dos principais eventos internacionais na área da investigação qualitativa: o Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e a World Conference on Qualitative Research (WCQR).</p>
+    <h2 class="i18n" data-pt="Sobre" data-en="About"></h2>
+    <p class="lede i18n"
+      data-pt="Investigador doutorado da Universidade de Aveiro, integrado no Centro de Investiga&ccedil;&atilde;o em Did&aacute;tica e Tecnologia na Forma&ccedil;&atilde;o de Formadores (CIDTFF &ndash; DEP), e colaborador do Laborat&oacute;rio de Intelig&ecirc;ncia Artificial e Ci&ecirc;ncia de Computadores (LIACC) da Faculdade de Engenharia da Universidade do Porto. Desenvolve atividade cient&iacute;fica h&aacute; mais de duas d&eacute;cadas na intersec&ccedil;&atilde;o entre Educa&ccedil;&atilde;o, tecnologias digitais e metodologias de investiga&ccedil;&atilde;o, com enfoque recente na utiliza&ccedil;&atilde;o cr&iacute;tica, &eacute;tica e respons&aacute;vel da intelig&ecirc;ncia artificial &mdash; incluindo grandes modelos de linguagem &mdash; em contextos de ensino superior e investiga&ccedil;&atilde;o cient&iacute;fica."
+      data-en="Doctoral researcher at the University of Aveiro, integrated member of the Research Centre on Didactics and Technology in the Education of Trainers (CIDTFF &ndash; DEP), and collaborator of the Artificial Intelligence and Computer Science Laboratory (LIACC) at the Faculty of Engineering, University of Porto. He has been active in scientific research for over two decades at the intersection of Education, digital technologies and research methodologies, with a recent focus on the critical, ethical and responsible use of artificial intelligence &mdash; including large language models &mdash; in higher education and scientific research contexts."></p>
+    <p class="i18n"
+      data-pt="Doutorado em Multim&eacute;dia em Educa&ccedil;&atilde;o pela Universidade de Aveiro, com p&oacute;s-doutoramento em investiga&ccedil;&atilde;o qualitativa aplicada &agrave; Educa&ccedil;&atilde;o e forma&ccedil;&atilde;o de base em Engenharia da Comunica&ccedil;&atilde;o. &Eacute; autor e editor de mais de 300 publica&ccedil;&otilde;es cient&iacute;ficas. Coordena, desde a sua cria&ccedil;&atilde;o, dois dos principais eventos internacionais na &aacute;rea da investiga&ccedil;&atilde;o qualitativa: o CIAIQ e a WCQR."
+      data-en="PhD in Multimedia in Education from the University of Aveiro, with a postdoctoral fellowship in qualitative research applied to Education and a background in Communication Engineering. He is author and editor of more than 300 scientific publications. He has coordinated, since their creation, two of the leading international events in qualitative research: CIAIQ and WCQR."></p>
     <div class="stat-row">
-      <div class="stat"><span class="num">300+</span><span class="lbl">Publicações científicas</span></div>
-      <div class="stat"><span class="num">76</span><span class="lbl">Artigos em revistas</span></div>
-      <div class="stat"><span class="num">50</span><span class="lbl">Artigos em conferências</span></div>
-      <div class="stat"><span class="num">44</span><span class="lbl">Eventos científicos organizados</span></div>
-      <div class="stat"><span class="num">20+</span><span class="lbl">Anos de atividade científica</span></div>
+      <div class="stat"><span class="num">300+</span><span class="lbl i18n" data-pt="Publica&ccedil;&otilde;es" data-en="Publications"></span></div>
+      <div class="stat"><span class="num">76</span><span class="lbl i18n" data-pt="Artigos em revistas" data-en="Journal articles"></span></div>
+      <div class="stat"><span class="num">50</span><span class="lbl i18n" data-pt="Artigos em confer&ecirc;ncias" data-en="Conference papers"></span></div>
+      <div class="stat"><span class="num">44</span><span class="lbl i18n" data-pt="Eventos organizados" data-en="Events organised"></span></div>
+      <div class="stat"><span class="num">20+</span><span class="lbl i18n" data-pt="Anos de atividade" data-en="Years of activity"></span></div>
     </div>
   </section>
 
   <section id="percurso">
-    <h2>Percurso Profissional</h2>
+    <h2 class="i18n" data-pt="Percurso Profissional" data-en="Professional Career"></h2>
     <div class="entry">
-      <span class="period">2023 — presente</span>
-      <h3>Investigador Doutorado, Universidade de Aveiro</h3>
-      <p class="meta">Projeto "Collaborative and automated processes for qualitative research in Education" · DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011</p>
+      <span class="period i18n" data-pt="2023 &mdash; presente" data-en="2023 &mdash; present"></span>
+      <h3 class="i18n" data-pt="Investigador Doutorado, Universidade de Aveiro" data-en="Doctoral Researcher, University of Aveiro"></h3>
+      <p class="meta i18n" data-pt="Projeto &ldquo;Collaborative and automated processes for qualitative research in Education&rdquo; &middot; DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011" data-en="Project &ldquo;Collaborative and automated processes for qualitative research in Education&rdquo; &middot; DOI: 10.54499/CEECINST/00013/2021/CP2779/CT0011"></p>
     </div>
     <div class="entry">
-      <span class="period">2023 — presente</span>
-      <h3>Investigador Doutorado, Faculdade de Psicologia e Ciências da Educação da Universidade do Porto</h3>
+      <span class="period i18n" data-pt="2023 &mdash; presente" data-en="2023 &mdash; present"></span>
+      <h3 class="i18n" data-pt="Investigador Doutorado, Faculdade de Psicologia e Ci&ecirc;ncias da Educa&ccedil;&atilde;o da Universidade do Porto" data-en="Doctoral Researcher, Faculty of Psychology and Education Sciences, University of Porto"></h3>
     </div>
     <div class="entry">
-      <span class="period">2013 — presente</span>
-      <h3>Membro integrado e do Conselho Científico, CIDTFF — Universidade de Aveiro</h3>
-      <p class="meta">Laboratório de Conteúdos Digitais (LCD), Departamento de Educação e Psicologia</p>
+      <span class="period i18n" data-pt="2013 &mdash; presente" data-en="2013 &mdash; present"></span>
+      <h3 class="i18n" data-pt="Membro integrado e do Conselho Cient&iacute;fico, CIDTFF &ndash; Universidade de Aveiro" data-en="Integrated Member and Scientific Council Member, CIDTFF &ndash; University of Aveiro"></h3>
+      <p class="meta i18n" data-pt="Laborat&oacute;rio de Conte&uacute;dos Digitais (LCD), Departamento de Educa&ccedil;&atilde;o e Psicologia" data-en="Digital Content Laboratory (LCD), Department of Education and Psychology"></p>
     </div>
     <div class="entry">
-      <span class="period">2008 — presente</span>
-      <h3>Colaborador, LIACC — Faculdade de Engenharia da Universidade do Porto</h3>
+      <span class="period i18n" data-pt="2008 &mdash; presente" data-en="2008 &mdash; present"></span>
+      <h3 class="i18n" data-pt="Colaborador, LIACC &ndash; Faculdade de Engenharia da Universidade do Porto" data-en="Collaborator, LIACC &ndash; Faculty of Engineering, University of Porto"></h3>
     </div>
     <div class="entry">
-      <span class="period">2004 — presente</span>
-      <h3>Cofundador, Ludomedia Unipessoal Lda.</h3>
-      <p class="meta">Responsável intelectual e pedagógico · Oliveira de Azeméis · www.ludomedia.org</p>
+      <span class="period i18n" data-pt="2004 &mdash; presente" data-en="2004 &mdash; present"></span>
+      <h3 class="i18n" data-pt="Cofundador, Ludomedia Unipessoal Lda." data-en="Co-founder, Ludomedia Unipessoal Lda."></h3>
+      <p class="meta i18n" data-pt="Respons&aacute;vel intelectual e pedag&oacute;gico &middot; Oliveira de Azem&eacute;is &middot; www.ludomedia.org" data-en="Intellectual and pedagogical lead &middot; Oliveira de Azem&eacute;is &middot; www.ludomedia.org"></p>
     </div>
     <div class="entry">
-      <span class="period">2000 — 2006</span>
-      <h3>Cofundador e Diretor Geral, ArteVirtual</h3>
-      <p class="meta">Exploração de Tecnologias de Informação e Comunicação, Oliveira de Azeméis</p>
+      <span class="period i18n" data-pt="2000 &ndash; 2006" data-en="2000 &ndash; 2006"></span>
+      <h3 class="i18n" data-pt="Cofundador e Diretor Geral, ArteVirtual" data-en="Co-founder and General Director, ArteVirtual"></h3>
+      <p class="meta i18n" data-pt="Explora&ccedil;&atilde;o de Tecnologias de Informa&ccedil;&atilde;o e Comunica&ccedil;&atilde;o, Oliveira de Azem&eacute;is" data-en="Information and Communication Technology venture, Oliveira de Azem&eacute;is"></p>
     </div>
   </section>
 
   <section id="formacao">
-    <h2>Formação Académica</h2>
+    <h2 class="i18n" data-pt="Forma&ccedil;&atilde;o Acad&eacute;mica" data-en="Academic Education"></h2>
     <div class="entry">
       <span class="period">2018</span>
-      <h3>Pós-Doutoramento — Universidade de Aveiro</h3>
-      <p class="meta">"Implementação e Avaliação de Instrumentos para Análise Qualitativa na Investigação em Educação" · bolsa SFRH/BPD/104288/2014</p>
+      <h3 class="i18n" data-pt="P&oacute;s-Doutoramento &ndash; Universidade de Aveiro" data-en="Postdoctoral Fellowship &ndash; University of Aveiro"></h3>
+      <p class="meta i18n" data-pt="&ldquo;Implementa&ccedil;&atilde;o e Avalia&ccedil;&atilde;o de Instrumentos para An&aacute;lise Qualitativa na Investiga&ccedil;&atilde;o em Educa&ccedil;&atilde;o&rdquo; &middot; bolsa SFRH/BPD/104288/2014" data-en="&ldquo;Implementation and Evaluation of Instruments for Qualitative Analysis in Education Research&rdquo; &middot; grant SFRH/BPD/104288/2014"></p>
     </div>
     <div class="entry">
       <span class="period">2012</span>
-      <h3>Doutoramento em Multimédia em Educação — Universidade de Aveiro</h3>
-      <p class="meta">Departamento de Educação e Departamento de Comunicação e Arte · Tese: "Metodologia Híbrida de Desenvolvimento Centrado no Utilizador: aplicada ao Software Educativo"</p>
+      <h3 class="i18n" data-pt="Doutoramento em Multim&eacute;dia em Educa&ccedil;&atilde;o &ndash; Universidade de Aveiro" data-en="PhD in Multimedia in Education &ndash; University of Aveiro"></h3>
+      <p class="meta i18n" data-pt="Tese: &ldquo;Metodologia H&iacute;brida de Desenvolvimento Centrado no Utilizador: aplicada ao Software Educativo&rdquo;" data-en="Thesis: &ldquo;Hybrid User-Centred Development Methodology Applied to Educational Software&rdquo;"></p>
     </div>
     <div class="entry">
       <span class="period">2003</span>
-      <h3>Curso de Especialização em Multimédia em Educação — Universidade de Aveiro</h3>
+      <h3 class="i18n" data-pt="Curso de Especializa&ccedil;&atilde;o em Multim&eacute;dia em Educa&ccedil;&atilde;o &ndash; Universidade de Aveiro" data-en="Specialisation Course in Multimedia in Education &ndash; University of Aveiro"></h3>
     </div>
     <div class="entry">
       <span class="period">2002</span>
-      <h3>Licenciatura em Engenharia da Comunicação (vertente Comunicação e Design) — Universidade Fernando Pessoa</h3>
+      <h3 class="i18n" data-pt="Licenciatura em Engenharia da Comunica&ccedil;&atilde;o (Comunica&ccedil;&atilde;o e Design) &ndash; Universidade Fernando Pessoa" data-en="Bachelor&rsquo;s Degree in Communication Engineering (Communication and Design) &ndash; Universidade Fernando Pessoa"></h3>
     </div>
-    <p class="meta" style="margin-top:8px;">Detém ainda certificação como Formador pelo Conselho Científico-Pedagógico da Formação Contínua (CCPFC/RFO – 17976/04, desde 2004) e diversa formação complementar em investigação, análise bibliométrica e metodologias mistas.</p>
+    <p class="meta i18n" style="margin-top:8px;"
+      data-pt="Certifica&ccedil;&atilde;o como Formador pelo Conselho Cient&iacute;fico-Pedag&oacute;gico da Forma&ccedil;&atilde;o Cont&iacute;nua (CCPFC/RFO &ndash; 17976/04, desde 2004)."
+      data-en="Certified Trainer, Scientific-Pedagogical Council for Continuing Education (CCPFC/RFO &ndash; 17976/04, since 2004)."></p>
   </section>
 
   <section id="investigacao">
-    <h2>Áreas de Investigação</h2>
+    <h2 class="i18n" data-pt="&Aacute;reas de Investiga&ccedil;&atilde;o" data-en="Research Areas"></h2>
     <div class="tags">
-      <span class="tag">Colaboração Humano-IA</span>
-      <span class="tag">Investigação Qualitativa</span>
-      <span class="tag">Métodos Mistos</span>
-      <span class="tag">Análise de Dados Qualitativos</span>
-      <span class="tag">Software webQDA</span>
-      <span class="tag">Métodos Visuais</span>
-      <span class="tag">Design Centrado no Utilizador</span>
-      <span class="tag">Ética e Integridade na Investigação</span>
-      <span class="tag">Tecnologias Educativas</span>
+      <span class="tag i18n" data-pt="Colabora&ccedil;&atilde;o Humano-IA" data-en="Human-AI Collaboration"></span>
+      <span class="tag i18n" data-pt="Investiga&ccedil;&atilde;o Qualitativa" data-en="Qualitative Research"></span>
+      <span class="tag i18n" data-pt="M&eacute;todos Mistos" data-en="Mixed Methods"></span>
+      <span class="tag i18n" data-pt="An&aacute;lise de Dados Qualitativos" data-en="Qualitative Data Analysis"></span>
+      <span class="tag">webQDA</span>
+      <span class="tag i18n" data-pt="M&eacute;todos Visuais" data-en="Visual Methods"></span>
+      <span class="tag i18n" data-pt="Design Centrado no Utilizador" data-en="User-Centred Design"></span>
+      <span class="tag i18n" data-pt="&Eacute;tica e Integridade na Investiga&ccedil;&atilde;o" data-en="Research Ethics and Integrity"></span>
+      <span class="tag i18n" data-pt="Tecnologias Educativas" data-en="Educational Technologies"></span>
     </div>
-    <p style="margin-top:20px;">Participa atualmente em projetos e redes científicas internacionais, entre os quais o Erasmus+ EDUAI (Empowering Educators for AI-Integrated Learning), a COST Action CA24121 (Knowledge Graphs in the Era of Large Language Models) e colaborações com a National Academy of Sciences of Ukraine / UNESCO Chair on AI in Education. Organiza regularmente iniciativas dedicadas à IA no ensino e na investigação, como o Fórum de Inteligência Artificial no Espaço Educacional e a iniciativa "Saber Lidar com a IA".</p>
+    <p style="margin-top:20px;" class="i18n"
+      data-pt="Participa atualmente em projetos e redes cient&iacute;ficas internacionais, entre os quais o Erasmus+ EDUAI (Empowering Educators for AI-Integrated Learning), a COST Action CA24121 (Knowledge Graphs in the Era of Large Language Models) e colabora&ccedil;&otilde;es com a National Academy of Sciences of Ukraine / UNESCO Chair on AI in Education."
+      data-en="Currently involved in international scientific projects and networks, including the Erasmus+ EDUAI project (Empowering Educators for AI-Integrated Learning), COST Action CA24121 (Knowledge Graphs in the Era of Large Language Models), and collaborations with the National Academy of Sciences of Ukraine / UNESCO Chair on AI in Education."></p>
   </section>
 
   <section id="publicacoes">
-    <h2>Publicações Selecionadas</h2>
-    <p class="meta" style="margin-bottom:16px;">Seleção de publicações recentes. Lista completa (300+ trabalhos) disponível no <a href="https://scholar.google.pt/citations?hl=en&user=IBkRQJsAAAAJ" target="_blank">Google Scholar</a> e <a href="http://orcid.org/0000-0002-4644-5879" target="_blank">ORCID</a>.</p>
+    <h2 class="i18n" data-pt="Publica&ccedil;&otilde;es Selecionadas" data-en="Selected Publications"></h2>
+    <p class="meta i18n" style="margin-bottom:16px;"
+      data-pt="Lista completa (300+ trabalhos) dispon&iacute;vel no Google Scholar e ORCID."
+      data-en="Full list (300+ works) available on Google Scholar and ORCID."></p>
     <ul class="pub-list">
       <li><span class="yr">2025</span> — Costa, A. P., Bryda, G., Christou, P. A., & Kasperiuniene, J. AI as a Co-researcher in the Qualitative Research Workflow: Transforming Human-AI Collaboration. <em>International Journal of Qualitative Methods</em>, 24.</li>
       <li><span class="yr">2025</span> — Costa, A. P., Burneo, P., & Kasperiuniene, J. Mixed-methods & AI for Methodological Literature Reviews. <em>The Qualitative Report</em>, 30(10), 4515–4540.</li>
@@ -267,55 +307,57 @@
   </section>
 
   <section id="docencia">
-    <h2>Docência</h2>
+    <h2 class="i18n" data-pt="Doc&ecirc;ncia" data-en="Teaching"></h2>
     <div class="entry">
       <span class="period">2025/2026</span>
-      <h3>Universidade de Aveiro</h3>
-      <p class="meta">Metodologias de Investigação em Multimédia em Educação (Programas Doutorais) · Metodologias de Investigação em Educação (Programa Doutoral em Educação)</p>
+      <h3 class="i18n" data-pt="Universidade de Aveiro" data-en="University of Aveiro"></h3>
+      <p class="meta i18n" data-pt="Metodologias de Investiga&ccedil;&atilde;o em Multim&eacute;dia em Educa&ccedil;&atilde;o &middot; Metodologias de Investiga&ccedil;&atilde;o em Educa&ccedil;&atilde;o (Programas Doutorais)" data-en="Research Methodologies in Multimedia in Education &middot; Research Methodologies in Education (Doctoral Programmes)"></p>
     </div>
     <div class="entry">
-      <span class="period">2014 — 2024</span>
-      <h3>Universidade de Aveiro, Universidade Lusófona do Porto, ISLA, ISVOUGA</h3>
-      <p class="meta">Metodologias de Investigação em cursos de mestrado, doutoramento e pós-graduação; Competências Transversais e Transferíveis (Escola Doutoral, UA, desde 2024/2025)</p>
+      <span class="period i18n" data-pt="2014 &ndash; 2024" data-en="2014 &ndash; 2024"></span>
+      <h3 class="i18n" data-pt="Universidade de Aveiro, Universidade Lus&oacute;fona do Porto, ISLA, ISVOUGA" data-en="University of Aveiro, Universidade Lus&oacute;fona do Porto, ISLA, ISVOUGA"></h3>
+      <p class="meta i18n" data-pt="Metodologias de Investiga&ccedil;&atilde;o em cursos de mestrado, doutoramento e p&oacute;s-gradua&ccedil;&atilde;o" data-en="Research Methodologies in master&rsquo;s, doctoral and postgraduate programmes"></p>
     </div>
     <div class="entry">
-      <span class="period">2001 — 2003</span>
-      <h3>Instituto Piaget</h3>
-      <p class="meta">Comunicação Educacional Multimédia e Novas Técnicas de Comunicação</p>
+      <span class="period i18n" data-pt="2001 &ndash; 2003" data-en="2001 &ndash; 2003"></span>
+      <h3 class="i18n" data-pt="Instituto Piaget" data-en="Instituto Piaget"></h3>
+      <p class="meta i18n" data-pt="Comunica&ccedil;&atilde;o Educacional Multim&eacute;dia e Novas T&eacute;cnicas de Comunica&ccedil;&atilde;o" data-en="Multimedia Educational Communication and New Communication Techniques"></p>
     </div>
-    <p style="margin-top:10px;">Desde 2010, coordena a formação em torno do software de análise qualitativa <strong>webQDA</strong>, tendo dinamizado dezenas de cursos e workshops em Portugal, Espanha, Brasil, Croácia e Jordânia, entre outros países.</p>
+    <p style="margin-top:10px;" class="i18n"
+      data-pt="Desde 2010, coordena a forma&ccedil;&atilde;o em torno do software <strong>webQDA</strong>, tendo dinamizado dezenas de cursos e workshops em Portugal, Espanha, Brasil, Cro&aacute;cia e Jord&acirc;nia, entre outros pa&iacute;ses."
+      data-en="Since 2010, he has coordinated training around the <strong>webQDA</strong> software, having run dozens of courses and workshops in Portugal, Spain, Brazil, Croatia and Jordan, among other countries."></p>
   </section>
 
   <section id="servico">
-    <h2>Serviço Científico</h2>
+    <h2 class="i18n" data-pt="Servi&ccedil;o Cient&iacute;fico" data-en="Scientific Service"></h2>
     <div class="grid2">
       <div>
-        <h3 style="margin-bottom:10px;">Organização de Eventos (seleção)</h3>
+        <h3 class="i18n" style="margin-bottom:10px;" data-pt="Organiza&ccedil;&atilde;o de Eventos (sele&ccedil;&atilde;o)" data-en="Event Organisation (selection)"></h3>
         <ul class="plain">
-          <li>Coorganizador, 9th World Conference on Qualitative Research (WCQR2026), Madrid</li>
-          <li>Coorganizador, 14º Congresso Ibero-Americano em Investigação Qualitativa, Porto (2025)</li>
-          <li>Coorganizador, 2º Fórum IA no Espaço Educacional, Universidade de Aveiro (2025)</li>
-          <li>Coorganizador, 8th World Conference on Qualitative Research (WCQR2025), Cracóvia</li>
-          <li>Coordenador fundador do CIAIQ e da WCQR — 14 e 9 edições realizadas, respetivamente</li>
+          <li class="i18n" data-pt="Coorganizador, 9th World Conference on Qualitative Research (WCQR2026), Madrid" data-en="Co-organiser, 9th World Conference on Qualitative Research (WCQR2026), Madrid"></li>
+          <li class="i18n" data-pt="Coorganizador, 14&ordm; Congresso Ibero-Americano em Investiga&ccedil;&atilde;o Qualitativa, Porto (2025)" data-en="Co-organiser, 14th Ibero-American Congress on Qualitative Research, Porto (2025)"></li>
+          <li class="i18n" data-pt="Coorganizador, 2&ordm; F&oacute;rum IA no Espa&ccedil;o Educacional, Universidade de Aveiro (2025)" data-en="Co-organiser, 2nd AI in Education Forum, University of Aveiro (2025)"></li>
+          <li class="i18n" data-pt="Coorganizador, 8th World Conference on Qualitative Research (WCQR2025), Cracóvia" data-en="Co-organiser, 8th World Conference on Qualitative Research (WCQR2025), Kraków"></li>
+          <li class="i18n" data-pt="Coordenador fundador do CIAIQ (14 edi&ccedil;&otilde;es) e da WCQR (9 edi&ccedil;&otilde;es)" data-en="Founding coordinator of CIAIQ (14 editions) and WCQR (9 editions)"></li>
         </ul>
       </div>
       <div>
-        <h3 style="margin-bottom:10px;">Órgãos e Comissões Científicas</h3>
+        <h3 class="i18n" style="margin-bottom:10px;" data-pt="&Oacute;rg&atilde;os e Comiss&otilde;es Cient&iacute;ficas" data-en="Scientific Bodies and Committees"></h3>
         <ul class="plain">
-          <li>Membro do Conselho Científico, CIIE — Universidade do Porto (2026–)</li>
-          <li>Membro da Comissão Científica, Doutoramento em Educação, ISCED-Huíla, Angola (2025–)</li>
-          <li>Membro do Conselho Científico, CIDTFF — Universidade de Aveiro (2013–)</li>
-          <li>Membro do Editorial Board, <em>The Qualitative Report</em> (2025–)</li>
-          <li>Track Chair em conferências internacionais (TEEM 2020–2022, ISCAIE/IEEE, TASK)</li>
+          <li class="i18n" data-pt="Membro do Conselho Cient&iacute;fico, CIIE &ndash; Universidade do Porto (2026&ndash;)" data-en="Member of the Scientific Council, CIIE &ndash; University of Porto (2026&ndash;)"></li>
+          <li class="i18n" data-pt="Membro da Comiss&atilde;o Cient&iacute;fica, Doutoramento em Educa&ccedil;&atilde;o, ISCED-Hu&iacute;la, Angola (2025&ndash;)" data-en="Member of the Scientific Committee, PhD in Education, ISCED-Hu&iacute;la, Angola (2025&ndash;)"></li>
+          <li class="i18n" data-pt="Membro do Conselho Cient&iacute;fico, CIDTFF &ndash; Universidade de Aveiro (2013&ndash;)" data-en="Member of the Scientific Council, CIDTFF &ndash; University of Aveiro (2013&ndash;)"></li>
+          <li class="i18n" data-pt="Membro do Editorial Board, <i>The Qualitative Report</i> (2025&ndash;)" data-en="Member of the Editorial Board, <i>The Qualitative Report</i> (2025&ndash;)"></li>
+          <li class="i18n" data-pt="Track Chair em confer&ecirc;ncias internacionais (TEEM 2020&ndash;2022, ISCAIE/IEEE, TASK)" data-en="Track Chair at international conferences (TEEM 2020&ndash;2022, ISCAIE/IEEE, TASK)"></li>
         </ul>
       </div>
     </div>
   </section>
 
   <section id="premios">
-    <h2>Prémios e Distinções</h2>
+    <h2 class="i18n" data-pt="Pr&eacute;mios e Distin&ccedil;&otilde;es" data-en="Awards and Distinctions"></h2>
     <ul class="plain">
-      <li>Menção Honrosa na área das Artes e Humanidades, categoria "Prémio Investigador UA" (2022)</li>
+      <li class="i18n" data-pt="Men&ccedil;&atilde;o Honrosa, &Aacute;rea de Artes e Humanidades, &ldquo;Pr&eacute;mio Investigador UA&rdquo; (2022)" data-en="Honourable Mention, Arts and Humanities, &ldquo;UA Researcher Award&rdquo; (2022)"></li>
       <li>Biannual Book in Spanish or Portuguese, ICQI Award (2016)</li>
     </ul>
   </section>
@@ -324,8 +366,29 @@
 
 <footer>
   <p>António Pedro Dias da Costa · apcosta@ua.pt · Oliveira de Azeméis, Portugal</p>
-  <p>Currículo completo disponível mediante pedido.</p>
+  <p class="i18n" data-pt="Curr&iacute;culo completo dispon&iacute;vel mediante pedido." data-en="Full curriculum vitae available upon request."></p>
 </footer>
+
+<script>
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.i18n').forEach(function(el){
+      el.innerHTML = el.dataset[lang] || el.dataset.pt;
+    });
+    document.getElementById('langBtn').textContent = (lang === 'pt') ? 'EN' : 'PT';
+    document.title = (lang === 'pt')
+      ? 'António Pedro Costa — Curriculum Vitae'
+      : 'António Pedro Costa — Curriculum Vitae (EN)';
+    try { localStorage.setItem('cvLang', lang); } catch(e) {}
+  }
+  var currentLang = 'pt';
+  try { currentLang = localStorage.getItem('cvLang') || 'pt'; } catch(e) {}
+  function toggleLang(){
+    currentLang = (currentLang === 'pt') ? 'en' : 'pt';
+    applyLang(currentLang);
+  }
+  applyLang(currentLang);
+</script>
 
 </body>
 </html>
