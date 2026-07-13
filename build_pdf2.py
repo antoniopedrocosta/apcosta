@@ -37,7 +37,7 @@ def make_circle_photo(src, dst, size=300):
 CONTENT = {
     "pt": dict(
         title="António Pedro Costa — Curriculum Vitae",
-        role="Investigador Doutorado · Faculdade de Psicologia e Ciências da Educação, Universidade do Porto · CIDTFF – Universidade de Aveiro · LIACC – Universidade do Porto",
+        role="Investigador Integrado no Centro de Investigação e Intervenção Educativas (CIIE) da Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto (FPCEUP)",
         tagline="Investigação Qualitativa, Métodos Mistos e Colaboração Humano-IA aplicadas à Educação. Coautor do software webQDA e coordenador do Congresso Ibero-Americano em Investigação Qualitativa (CIAIQ) e da World Conference on Qualitative Research (WCQR).",
         contact="Oliveira de Azeméis, Portugal  ·  apcosta@fpce.up.pt  ·  apcosta@ludomedia.org  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae",
         h_sobre="SOBRE", h_percurso="PERCURSO PROFISSIONAL", h_formacao="FORMAÇÃO ACADÉMICA",
@@ -101,7 +101,7 @@ CONTENT = {
     ),
     "en": dict(
         title="António Pedro Costa — Curriculum Vitae",
-        role="Doctoral Researcher · Faculty of Psychology and Educational Sciences, University of Porto · CIDTFF – University of Aveiro · LIACC – University of Porto",
+        role="Integrated Researcher at the Centre for Research and Intervention in Education (CIIE), Faculty of Psychology and Education Sciences, University of Porto (FPCEUP)",
         tagline="Qualitative Research, Mixed Methods and Human-AI Collaboration applied to Education. Co-author of the webQDA software and coordinator of the Ibero-American Congress on Qualitative Research (CIAIQ) and the World Conference on Qualitative Research (WCQR).",
         contact="Oliveira de Azeméis, Portugal  ·  apcosta@fpce.up.pt  ·  apcosta@ludomedia.org  ·  ORCID: 0000-0002-4644-5879  ·  Google Scholar  ·  CiênciaVitae",
         h_sobre="ABOUT", h_percurso="PROFESSIONAL CAREER", h_formacao="ACADEMIC EDUCATION",
